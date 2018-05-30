@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">News APP</string>
+    <string name="attribution_link">Powered by News API</string>
+
 </resources>

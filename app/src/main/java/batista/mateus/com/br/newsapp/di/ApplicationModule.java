@@ -1,6 +1,6 @@
-package batista.mateus.com.br.newsapp;
+package batista.mateus.com.br.newsapp.di;
 
-import android.app.Application;
+
 import android.content.Context;
 
 import javax.inject.Named;
