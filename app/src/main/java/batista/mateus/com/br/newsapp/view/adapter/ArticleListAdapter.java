@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
 import batista.mateus.com.br.newsapp.R;
 import batista.mateus.com.br.newsapp.network.DownloadImage;
 import batista.mateus.com.br.newsapp.network.model.Article;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.NewsViewHoder> {
 
@@ -36,6 +39,7 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
     @Override
     public void onBindViewHolder(@NonNull NewsViewHoder holder, int position) {
         Article article = articles.get(position);
+        holder.mTitle.setText(article.getTitle());
     }
 
     @Override
@@ -49,8 +53,15 @@ public class ArticleListAdapter extends RecyclerView.Adapter<ArticleListAdapter.
 
     public class NewsViewHoder extends RecyclerView.ViewHolder{
 
+        @BindView(R.id.title)
+        TextView mTitle;
+
         public NewsViewHoder(View itemView) {
             super(itemView);
+            ButterKnife.bind(this,itemView);
+
+            itemView.setOnClickListener( (View v) ->
+                    listener.onArticleSelected(articles.get(getAdapterPosition())));
         }
     }
 }

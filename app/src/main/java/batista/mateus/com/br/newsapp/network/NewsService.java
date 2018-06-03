@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 
 public interface NewsService {
 
-    @GET("/top-headlines")
-    Single<ResponseNews> getNews(@Query("sources") String sources);
+    @GET("top-headlines")
+    Single<ResponseNews> getNews(@Query("sources") String sources,  @Query("apiKey") String apiKey);
 }
